@@ -15,6 +15,6 @@ const accepted = () => {
 
 <template>
   <main>
-    <Card :description="description" :revert="revert" @reject="reject" @accepted="accepted" />
+    <Card :description="description" :revert="revert" @reject="reject" @accepted="accepted"></Card>
   </main>
 </template>

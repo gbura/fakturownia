@@ -2,7 +2,6 @@
 import { defineProps, defineEmits, ref } from "vue";
 
 interface Props {
-  title?: string;
   description?: string;
   revert: boolean;
 }
@@ -14,7 +13,7 @@ interface API_Response {
 
 const BASE_URL = "https://catfact.ninja/fact" as string;
 
-const { title = "Do you want to accept?", revert = false } = defineProps<Props>();
+const { revert = false } = defineProps<Props>();
 
 const emit = defineEmits<{
   (e: "reject"): void;
@@ -50,7 +49,10 @@ const handleGetFacts = async (): Promise<void> => {
 <template>
   <div class="container">
     <div class="container__text">
-      <h1 class="container__header">{{ title }}</h1>
+      <h1 class="container__header">
+        <template v-if="!$slots.default">Do you want to accept?</template>
+        <slot v-else />
+      </h1>
       <p v-if="description" class="container__description">
         {{ description }}
       </p>
