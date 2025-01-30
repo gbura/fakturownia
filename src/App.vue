@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import Card from "./components/Card.vue";
+import Card from "./components/FactCard.vue";
 
 const description = ref<string>("Accepting it will open a pandora’s box");
 const revert = ref<boolean>(false);
